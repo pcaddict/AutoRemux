@@ -181,34 +181,6 @@ def getTitles(dir, json_out:Path):
 def processMovies(movies_json, out_dir:Path):
     movies = loadMovieList(movies_json)
     remuxMovieList(movies)
-    
-
-# movies_e_details = list(map(lambda m: getBasicMovieFileDetails(m), findMovieFiles(Path('/mnt/e/Blu-ray/Movies'))))
-# movies_f_details = list(map(lambda m: getBasicMovieFileDetails(m), findMovieFiles(Path('/mnt/f/Blu-ray/Movies'))))
-# movies_g_details = list(map(lambda m: getBasicMovieFileDetails(m), findMovieFiles(Path('/mnt/g/Blu-ray/Movies'))))
-# all_movie_details = [movies_e_details, movies_f_details, movies_g_details]
-
-# for l in all_movie_details:
-#     with Pool(4) as p:
-#         result = p.map(getMovieDetails, l)
-
-# has_mult_playlists = [m for m in result if len(m.Playlists) > 1]
-# # dumpMovieList(result, 'movies_f.json')
-
-# e = loadMovieList('movies.json')
-# f = loadMovieList('movies_f.json')
-# g = loadMovieList('movies_g.json')
-# all_movies = e + f + g
-
-# import operator
-# original_size = sum([m.Size for m in g])
-# mkv_size = sum([m.Playlists[0].Size for m in g])
-# print(f'Current Size: {original_size / (1024**4)}\nResult Size: {mkv_size / (1024**4)}\nDifference: {(original_size - mkv_size) / (1024**4)}')
-
-
-# dumpMovieList(all_movies, 'all_movies.josn')
-
-# remuxMovieList(all_movies, Path('truenas/Movies'))
 
 class ProgramAction(Enum):
     GET_TITLES = 0
@@ -279,18 +251,6 @@ def main():
     parser = setup_argument_parser()
     args = parser.parse_args()
     action = validate_args(args)
-
-    # in_dirs: list[Path] = args.in_dir if args.in_dir is not None else []
-    # our_dir: Path = args.out_dir if args.out_dir is not None else Path()
-    # json_out: Path = args.json if args.json is not None else Path()
-    # json_in: Path = args.load_json if args.load_json is not None else Path()
-    # filter: list[str] = args.filter if args.filter is not None else list[str]
-
-    # print(in_dirs)
-    # print(our_dir)
-    # print(json_out)
-    # print(json_in)
-    # print(filter)
 
     match(action):
         case ProgramAction.GET_TITLES:
