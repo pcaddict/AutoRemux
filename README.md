@@ -27,9 +27,9 @@ Once the queue json file has been created, run the program with the json file as
 ### Executing program
 #### Get Titles
 ```
-python AutoRemux.py --get-titles --in-dir <root movie dir> --json movie_queue.json
+python BatchRemux.py --get-titles --in-dir <root movie dir> --json movie_queue.json
 ```
 #### Process Titles
 ```
-python AutoRemux.py --process --load-json movie_queue.json --out-dir <root output dir>
+python BatchRemux.py --process --load-json movie_queue.json --out-dir <root output dir>
 ```
